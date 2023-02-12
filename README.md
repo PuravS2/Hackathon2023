@@ -7,10 +7,10 @@ This script provides a workout plan based on user's specifications, such as plan
 
 Requirements:
 
-pandas library
-random module
+pandas library\n
+random module\n
 
-Usage
+Usage\n
 
 When you visit the website, you will be prompted to input the parameters required by the code. These parameters will be used to generate the desired results.
 

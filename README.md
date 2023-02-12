@@ -18,6 +18,8 @@ Usage
 
 When you visit the website, you will be prompted to input the parameters required by the code. These parameters will be used to generate the desired results.
 
+The website is run through an web appliation called Python Anywhere by Anaconda. For anyone with the files trying to run the code they can go to their website and create an account. please upload all the files in order for the website to be generated properly. The link for a working website is posted above in this file. 
+
 Authors
 
 Purav Shah

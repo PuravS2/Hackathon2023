@@ -16,5 +16,5 @@ When you visit the website, you will be prompted to input the parameters require
 
 Authors
 
-Purav Shah 
+Purav Shah
 Ojas Kalra 

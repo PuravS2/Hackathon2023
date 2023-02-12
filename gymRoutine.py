@@ -1,8 +1,9 @@
 import pandas as pd
-import numpy as np
+from random import randint
 
 def get_workout_plan(plan_type, days_per_week, body_part, level, plan_option):
-    if level == "beginner":
+
+    if level == "beginner":
         max_workouts_per_day = 4
     elif level == "intermediate":
         max_workouts_per_day = 5
@@ -27,7 +28,9 @@ def plan_type_day(plan_type, body_part, max_workouts_per_day):
         while workouts_done < max_workouts_per_day and workouts_done < exercise_count:
             if exercise_count > 0:
                 exercise = body_part_df.sample(n=1)["Title"].values[0]
-                result += f"Exercise {workouts_done + 1}: {exercise}\n"
+                r1 = randint(3,4)
+                r2 = randint(8, 15)
+                result += f"Exercise {workouts_done + 1}: {exercise} " + str(r1) + "x" + str(r2) + "\n"
                 body_part_df = body_part_df[body_part_df["Title"] != exercise]
                 workouts_done += 1
             else:
@@ -40,7 +43,8 @@ def plan_type_day(plan_type, body_part, max_workouts_per_day):
 def plan_type_week(plan_type, days_per_week, level, plan_option, max_workouts_per_day):
     df = pd.read_csv("megaGymDataset.csv")
     workout_plan = []
-    if level == "beginner":
+
+    if level == "beginner":
         max_workouts_per_day = 4
     elif level == "intermediate":
         max_workouts_per_day = 5
@@ -89,7 +93,9 @@ def plan_type_week(plan_type, days_per_week, level, plan_option, max_workouts_pe
                 while workouts_done < exercises_per_workout and workouts_done < body_part_df["Title"].count() and max_workouts_per_day > 0:
                     if body_part_df["Title"].count() > 0:
                         exercise = body_part_df.sample(n=1)["Title"].values[0]
-                        result += f"- for {body_part}: {exercise}\n"
+                        r1 = randint(3,4)
+                        r2 = randint(8, 15)
+                        result += f"- for {body_part}: {exercise} " + str(r1) + "x" + str(r2) + "\n"
                         already_targeted_muscles.append(body_part)
                         workouts_done += 1
                         max_workouts_per_day -= 1
@@ -99,8 +105,3 @@ def plan_type_week(plan_type, days_per_week, level, plan_option, max_workouts_pe
                 break
         max_workouts_per_day = max_workouts_per_day_beginner if level == "beginner" else max_workouts_per_day_intermediate if level == "intermediate" else max_workouts_per_day_advanced
     return result
-
-
-print(get_workout_plan("day", 5, "Triceps", "beginner", "Arnold Split"))
-
-
